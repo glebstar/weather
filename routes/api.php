@@ -37,3 +37,7 @@ Route::group([
 ], function (){
     Route::get('get_for_city', [WeatherController::class, 'getForCity'])->name('weather.get_for_city');
 });
+
+Route::group(['middleware' => 'api'], function (){
+    Route::post('add_city');
+});
