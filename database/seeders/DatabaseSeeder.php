@@ -20,5 +20,9 @@ class DatabaseSeeder extends Seeder
              'email' => 'test@example.com',
              'password' => Hash::make('123456'),
          ]);
+
+        \App\Models\City::create([
+            'name' => 'Moscow',
+        ]);
     }
 }

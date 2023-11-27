@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'owm_api_key' => env('OMP_API_KEY', 'secret'),
 ];

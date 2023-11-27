@@ -24,4 +24,18 @@ class WeatherTest extends TestCase
 
         return $response['access_token'];
     }
+
+
+    /**
+     * Test get for City
+     *
+     * @param string $token
+     * @return void
+     * @depends test_login
+     */
+    public function test_get_for_city(string $token): void
+    {
+        $response = $this->getJson('api/weather/get_for_city?city=Moscow&token=' . $token);
+        $response->assertStatus(200);
+    }
 }
