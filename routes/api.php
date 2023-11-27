@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WeatherController;
+use App\Http\Controllers\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,5 +40,5 @@ Route::group([
 });
 
 Route::group(['middleware' => 'api'], function (){
-    Route::post('add_city');
+    Route::post('add_city', [CityController::class, 'create']);
 });
