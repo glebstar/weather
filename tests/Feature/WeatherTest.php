@@ -33,9 +33,9 @@ class WeatherTest extends TestCase
      * @return void
      * @depends test_login
      */
-    //public function test_get_for_city(string $token): void
-    //{
-    //    $response = $this->getJson('api/weather/get_for_city?city=Moscow&token=' . $token);
-    //    $response->assertStatus(200);
-    //}
+    public function test_get_for_city(string $token): void
+    {
+        $response = $this->getJson('api/weather/get_for_city?city=Moscow&token=' . $token);
+        $response->assertStatus(200);
+    }
 }
