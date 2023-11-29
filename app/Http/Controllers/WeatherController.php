@@ -17,7 +17,7 @@ class WeatherController extends Controller
      */
     public function getForCity(CityGetRequest $request): JsonResponse
     {
-        dd(json_decode(Redis::get($request->city), true));
+        //dd(json_decode(Redis::get($request->city), true));
 
         return response()->json(json_decode(Redis::get($request->city), true));
     }
