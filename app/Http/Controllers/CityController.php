@@ -9,7 +9,7 @@ class CityController extends Controller
 {
     public function create(CityCreateRequest $request)
     {
-        City::create([
+        City::updateOrCreate([
             'name' => $request->name,
         ]);
     }

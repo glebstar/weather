@@ -17,7 +17,7 @@ class CityTest extends TestCase
 
         $this->assertTrue(isset($response['access_token']));
 
-        $response = $this->postJson('api/add_city', [
+        $response = $this->postJson('api/add_city?token=' . $response['access_token'], [
             'name' => 'Ulan-Ude',
         ]);
 
