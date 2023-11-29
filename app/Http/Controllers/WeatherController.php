@@ -17,18 +17,13 @@ class WeatherController extends Controller
     }
 
     /**
-     * Получает температуру для заданного города
+     * Получает и отдаёт температуру для заданного города
      *
      * @param CityGetRequest $request
      * @return JsonResponse
      */
     public function getForCity(CityGetRequest $request): JsonResponse
     {
-        /**
-         * Для смены поставщика температуры изменить эту строку.
-         */
-        //$driver = new OpenWeatherMapDriver();
-
         return response()->json($this->driver->getForCity($request->city));
     }
 }
