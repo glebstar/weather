@@ -19,8 +19,12 @@ class OpenWeatherMapDriver implements WeatherInterface
         $result = [];
         $format = 'Температура: %s, ветер: %s м/с, %s';
 
-        foreach ($response->json()['list'] as $w) {
-            $result[$w['dt_txt']] = sprintf($format, $w['main']['temp'], $w['wind']['speed'], $w['weather'][0]['description']);
+        $weather = $response->json();
+
+        if (isset($weather['list'])) {
+            foreach ($weather['list'] as $w) {
+                $result[$w['dt_txt']] = sprintf($format, $w['main']['temp'], $w['wind']['speed'], $w['weather'][0]['description']);
+            }
         }
 
         return $result;
