@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Interfaces\WeatherInterface;
 use App\Models\City;
 use Illuminate\Console\Command;
-use JetBrains\PhpStorm\NoReturn;
 use Illuminate\Support\Facades\Redis;
 
 class GetWeather extends Command
@@ -35,12 +34,12 @@ class GetWeather extends Command
     /**
      * Execute the console command.
      */
-    #[NoReturn] public function handle()
+    public function handle(): void
     {
         $cities = City::get();
 
         foreach ($cities as $city) {
-            Redis::set($city, $this->driver->getForCity($city->name));
+            Redis::set($city->name, json_encode($this->driver->getForCity($city->name)));
         }
     }
 }
