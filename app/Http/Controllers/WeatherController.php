@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CityGetRequest;
-use App\Drivers\OpenWeatherMapDriver;
 use App\Interfaces\WeatherInterface;
 use Illuminate\Http\JsonResponse;
 
