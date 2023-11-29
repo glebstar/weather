@@ -40,7 +40,7 @@ class GetWeather extends Command
         $cities = City::get();
 
         foreach ($cities as $city) {
-            Redis::set($city, $this->driver->getForCity($city['name']));
+            Redis::set($city, $this->driver->getForCity($city->name));
         }
     }
 }
